@@ -17,4 +17,7 @@ RUN apk upgrade \
 
 COPY --from=builder /go/bin/go-shadowsocks2 /usr/bin/shadowsocks
 
-ENTRYPOINT ["shadowsocks"]
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
